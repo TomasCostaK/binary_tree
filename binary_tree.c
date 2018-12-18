@@ -1,9 +1,11 @@
 //
 // Tomás Oliveira e Silva, AED,  November 2018
 //
-// TO DO: Place your own identification here
+// 86182 - Rui Coelho
+// 89016 - Tomás Costa
+// 89059 - João Carvalho
 //
-// empirical study of random ordered binary trees
+//empirical study of random ordered binary trees
 //
 
 #include <math.h>
