@@ -278,7 +278,7 @@ int main(int argc,char **argv)
   printf("        ----------------------  -------------------------------  --------------  --------------\n");
   printf("     n  min max    mean    std    min   max       mean      std     mean    std     mean    std\n");
   printf("------  --- --- ------- ------  ----- ----- ---------- --------  ------- ------  ------- ------\n");
-  for(int n_log = 1 * 10;n_log <= 5 * 10;n_log++)
+  for(int n_log = 1 * 10;n_log <= 4 * 10;n_log++)
   {
     int n = (int)round(pow(10.0,(double)n_log / 10.0)); // the number of nodes of the tree
     int a[n];                                           // the nodes' data
