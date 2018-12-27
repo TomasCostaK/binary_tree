@@ -77,24 +77,15 @@ static void insert_node(tree_node **link,tree_node *n)
 
 static int count_leaves(tree_node *link)
 {
-  int n_leaves = 0;
-
   //caso node dado seja nulo
   if(link == NULL)
     return 0;
   //se nao tiver ponteiro para a esquerda nem direita e pq e uma folha
   if (link->left == NULL && link->right == NULL)
-    n_leaves++;
+    return 1;
   //caso nao seja folha, incrementamos o n leaves primeiro a esquerda e dps a direita
-  else {
-    //if existe link->left return leaves += count_leaves, senao 0
-    n_leaves += (link->left)? count_leaves(link->left):0;
-    //if existe link->right return leaves += count_leaves, senao 0
-    n_leaves += (link->right)? count_leaves(link->right):0;
-  }
-
-  return n_leaves;
-  //return 2;
+  //como ja damos return 0 caso seja nulo, podemos sempre chamar o ponteiro para a esquerda e direita e ir somando
+  return count_leaves(link->left) + count_leaves(link->right);
 }
 
 
@@ -111,6 +102,7 @@ static int tree_height(tree_node *link)
   int height = 1;
   
   //caso link seja null
+  //Ate retorna 0 caso a root seja null, apesar de nao ser height
   if(link == NULL)
     return 0;
 
@@ -273,6 +265,7 @@ int main(int argc,char **argv)
 {
   int details = (argc == 3 && argv[1][0] == '-' && argv[1][1] == 'a' && atoi(argv[2]) > 0) ? 1 : 0;
   int n_experiments = 1000; // TO DO: use more (1000000 should take 2 to 3 hours)
+  FILE *fil = fopen("info.data","wb");
 
   srandom(1u); // ensure reproducible results
   printf("                                  data for %d random trees\n",n_experiments);
@@ -292,6 +285,7 @@ int main(int argc,char **argv)
     int m,M;                                            // location of minima and maxima
 
     printf("%6d",n);
+    fprintf(fil,"%6d",n);
     //
     // the example in the slides
     //
@@ -374,6 +368,7 @@ int main(int argc,char **argv)
     std /= (double)n_experiments;
     std = sqrt(std - mean * mean);
     printf("  %3d %3d %7.4f %6.4f",m,M,mean,std);
+    fprintf(fil,"  %3d %3d %7.4f %6.4f",m,M,mean,std);
     mean = std = 0.0;
     m = n + 1;
     M = -1;
@@ -389,15 +384,19 @@ int main(int argc,char **argv)
     std /= (double)n_experiments;
     std = sqrt(std - mean * mean);
     printf("  %5d %5d %10.4f %8.4f",m,M,mean,std);
+    fprintf(fil,"  %5d %5d %10.4f %8.4f",m,M,mean,std);
     mean = hit[0] / (double)n_experiments;
     std = hit[1] / (double)n_experiments;
     std = sqrt(std - mean * mean);
     printf("  %7.4f %6.4f",mean,std);
+    fprintf(fil,"  %7.4f %6.4f",mean,std);
     mean = miss[0] / (double)n_experiments;
     std = miss[1] / (double)n_experiments;
     std = sqrt(std - mean * mean);
     printf("  %7.4f %6.4f",mean,std);
+    fprintf(fil,"  %7.4f %6.4f",mean,std);
     printf("\n");
+    fprintf(fil,"\n");
     //
     // output the tree height data
     //
