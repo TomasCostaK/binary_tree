@@ -55,13 +55,13 @@ BinTreeHits= frm * callsOnHit;
 BinTreeMiss= frm * callsOnMiss;
 
 figure(2)
-plot(n,callsOnHit);
+plot(n,callsOnHit, 'b');
 hold on
-plot(n,callsOnMiss);
+plot(n,callsOnMiss, 'r');
 hold on
-plot(n,intv*BinTreeHits);
+plot(n,intv*BinTreeHits, 'g');
 hold on
-plot(n,intv*BinTreeMiss);
+plot(n,intv*BinTreeMiss, 'k');
 hold off
 
 title('Number of Hits or Misses according to number of elements')
