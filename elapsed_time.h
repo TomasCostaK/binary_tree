@@ -12,9 +12,9 @@
 
 #if defined(__linux__) || defined(__APPLE__)
 
-//
-// GNU/Linux and MacOS code to measure elapsed time
-//
+/**
+ * GNU/Linux and MacOS code to measure elapsed time
+ */
 
 #include <time.h>
 
@@ -34,9 +34,9 @@ double elapsed_time(void)
 
 #if defined(_MSC_VER) || defined(_WIN32) || defined(_WIN64)
 
-//
-// Microsoft Windows code to measure elapsed time
-//
+/**
+ * Microsoft Windows code to measure elapsed time
+ */
 
 #include <windows.h>
 
