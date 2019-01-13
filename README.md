@@ -9,7 +9,7 @@ To begin using this program, choose one of the following options to get started:
 * [Download](https://github.com/user-cube/binary_tree/archive/master.zip)
 
 # Setup and running
-You can run and compile everything with the created make file.
+You can run and compile everything with the created makefile.
 
 ## Compile
 To compile open your shell and type:
