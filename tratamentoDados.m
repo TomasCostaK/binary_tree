@@ -3,7 +3,7 @@
 % Main Formula for fit: pinv(log10(n):1+0*n)*val
 
 %% Load file that we made while running binary_tree
-InfoCols=load('info.data');
+InfoCols=load('results.data');
 
 %% Read N nodes
 n=InfoCols(:,1);
@@ -32,17 +32,17 @@ BinTreeHeightMax= frm * TreeHeightMax;
 BinTreeHeightAvg= frm * TreeHeightAvg;
 
 figure(1)
-plot(n,TreeHeightMin);
+plot(n,TreeHeightMin, 'b');
 hold on
-plot(n,TreeHeightMax);
+plot(n,TreeHeightMax, 'r');
 hold on
-plot(n,TreeHeightAvg);
+plot(n,TreeHeightAvg, 'g');
 hold on
-plot(n,intv*BinTreeHeightMin);
+plot(n,intv*BinTreeHeightMin, 'k');
 hold on
-plot(n,intv*BinTreeHeightMax);
+plot(n,intv*BinTreeHeightMax, 'c');
 hold on
-plot(n,intv*BinTreeHeightAvg);
+plot(n,intv*BinTreeHeightAvg, 'm');
 hold off
 
 title('Tree height according to number of elements')
@@ -77,17 +77,17 @@ BinTreeLeavesMax= frm * TreeLeavesMax;
 BinTreeLeavesAvg= frm * TreeLeavesAvg;
 
 figure(3)
-plot(n,TreeLeavesMin);
+plot(n,TreeLeavesMin, 'b');
 hold on
-plot(n,TreeLeavesMax);
+plot(n,TreeLeavesMax,'r');
 hold on
-plot(n,TreeLeavesAvg);
+plot(n,TreeLeavesAvg, 'g');
 hold on
-plot(n,intv*BinTreeLeaveMin);
+plot(n,intv*BinTreeLeaveMin, 'k');
 hold on
-plot(n,intv*BinTreeLeavesMax);
+plot(n,intv*BinTreeLeavesMax, 'm');
 hold on
-plot(n,intv*BinTreeLeavesAvg);
+plot(n,intv*BinTreeLeavesAvg, 'c');
 hold off
 
 title('Number of leaves according to number of elements')
