@@ -176,7 +176,7 @@ int main(int argc,char **argv)
 {
   int details = (argc == 3 && argv[1][0] == '-' && argv[1][1] == 'a' && atoi(argv[2]) > 0) ? 1 : 0;
   int n_experiments = 1000; // TO DO: use more (1000000 should take 2 to 3 hours)
-  FILE *fil = fopen("info.data","wb");
+  FILE *fil = fopen("results.data","wb");
 
   srandom(1u); // ensure reproducible results
   printf("                                  data for %d random trees\n",n_experiments);
